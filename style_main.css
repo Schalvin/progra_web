@@ -1,0 +1,209 @@
+/* Styles début */
+body {
+    background-color: orange;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.sidebar-img {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+}
+
+.img-lettre {
+    position: absolute;
+    top: 250px;
+    left: 230px;
+    z-index: 7;
+    height: 120px;
+    transition: transform 2s;
+}
+
+.message {
+    background-color: rgb(233, 224, 199);
+    position: absolute;
+    top: 150px;
+    left: 60px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contenu{
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    scale: 0 0;
+    top: 50px;
+    left: 80px;
+    width: 10px;
+    height: 5px;
+    background-color: rgb(233, 224, 199);
+    font-size: 13px;
+    border-radius: 5px;
+    padding: 20px 10px 10px 0px;
+}
+
+.choix {
+    position: absolute;
+    display: none;
+    top: 265px;
+    left: 225px;
+    font-size: 20px;
+    padding: 10px;
+    border: 5px outset rgb(28, 140, 110);
+    border-radius: 7px;
+    background-color: mediumseagreen;
+}
+
+.personnages{
+    display: none;
+    flex-direction: row;
+    position: absolute;
+    top: 370px;
+    left: 80px;
+    border-radius: 5px;
+    background-color: orange;
+    width: 470px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px 10px 0px;
+}
+
+.imone {
+    height: 120px;
+    margin: auto;
+    padding: 0px 45px;
+}
+
+.imtwo {
+    height: 120px;
+    margin: auto;
+    padding: 0px 45px;
+}
+
+.imthree {
+    height: 120px;
+    margin: auto;
+    padding: 0px 45px;
+}
+
+input {
+    position: absolute;
+    opacity: 0;
+}
+
+input[type="submit"] {
+    position: absolute;
+    top: 130px;
+
+}
+
+/* Transitions */
+
+.img-lettre#onclick {
+    transform: scale(0.5, 0.5) translate(-200%, -30%);
+}
+
+.contenu#onclick {
+    overflow: visible;
+    scale: none;
+    height: 220px;
+    width: 470px;
+}
+
+.message#onclick {
+    display: none;
+}
+
+.choix#onclick {
+    display:flex;
+}
+
+.personnages#onclick{
+    display: flex;
+}
+
+/* Styles après click sur la lettre */
+
+.contenu_lettre{
+    transform: translate(-10%, 0%);
+    text-align: justify;
+}
+
+.cercle {
+    z-index: 12;
+    width: 400px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 80%;
+    border: 5px solid rgb(49, 43, 76);
+    border-style: outset;
+    transform: translate(-50%, 50%);
+}
+
+.photo-cercle {
+    background-color: rgb(141, 146, 175);
+    z-index: 11;
+    width: 400px;
+    height: auto;
+    display: block;
+    position: relative;
+    top: 90%;
+    left: 63%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 600px) {
+    .img-lettre {
+        height: 70px;
+        left: 40%;
+    }
+    .img-lettre#onclick {
+        visibility: hidden;
+    }
+
+    .message {
+        width: 70%;
+    }
+
+    .partie2{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenu#onclick {
+        position: relative;
+        width: 70%;
+        height: auto;
+        padding-bottom: 40px;
+    }
+    .choix {
+        position: relative;
+        top:70px;
+        left: 15%;
+        width: 70%;
+    }
+
+    .personnages{
+        position: relative;
+        top: 90px;
+        width: 70%;
+    }
+
+    .imone {
+        padding: 0px 20px;
+    }
+    
+    .imtwo {
+        padding: 0px 20px;
+    }
+    
+    .imthree {
+        padding: 0px 20px;
+    }
+
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Il était une fois...</title>
+<link rel="stylesheet" href="style_main.css">
+</head>
+<body class = "principale">
+    <img src="img/im1.png" class="sidebar-img">
+    <div>
+    <div class="message">Vous avez un message ! Cliquez sur la lettre</div>
+    <img src="img/im3.png" class="img-lettre">
+
+    <!-- Deuxième partie cachée -->
+    <div class="partie2">
+        <div class="contenu">
+            <div class="cercle">
+            <img src="img/im2.png" alt="Photo" class="photo-cercle">
+            </div>
+            <div class="contenu_lettre">Cher ennemi,</br></br>
+                Ta sœur, que tu chéris tant, se trouve dans l'étreinte des profondeurs, sous ma garde redoutable.</br></br>
+                Ne crains rien, car je ne me réjouis pas du désespoir. Le destin de ta sœur repose entre tes mains, entrelacé avec une série d'épreuves 
+                qui te raprocheront de son retour en sécurité.</br></br>
+                À toi de jouer!
+            </div>
+        </div>
+        <div class="choix">Choisis ton personnage !</div>
+        <form name = "personnages" class="personnages" action="desert.html" method="GET">
+            <label for="p1"><img src="img/imone.png" class="imone"></label>
+            <input type="radio" id="p1" name="perso" value="imone.png" onchange="perso_choisi()">
+            <label for="p2"><img src="img/imtwo.png" class="imtwo"></label>
+            <input type="radio" id="p2" name="perso" value="imtwo.png" onchange="perso_choisi()">
+            <label for="p3"><img src="img/imthree.png" class="imthree"></label>
+            <input type="radio" id="p3" name="perso" value="imthree.png" onchange="perso_choisi()">
+        </form>
+    </div>
+    </div>
+    <script src="script_main.js"></script>
+</body>
+</html>

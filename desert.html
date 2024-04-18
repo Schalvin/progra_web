@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>desert</title>
+<link rel="stylesheet" href="style_etapes.css">
+</head>
+<body class = "desert">
+    <div class="bigbox">
+        <div class="start_fin_score">
+            <div id="score">Score: 0</div> 
+            <button id="bstart">?</button> 
+            <form name="perso" class="perso" action="mer.html" method="GET">
+                <input type="text" name=perso id="perso" class="hidden">
+                <input type="submit" value="La suite..." id ="bfin" class = "hidden" onclick="submit_perso()">
+            </form>
+        </div>
+        <div class="game-container"> 
+            <div class="trou" id="0"></div> 
+            <div class="trou" id="1"></div> 
+            <div class="trou" id="2"></div> 
+            <div class="trou" id="3"></div> 
+            <div class="trou" id="4"></div> 
+            <div class="trou" id="5"></div> 
+            <div class="trou" id="6"></div> 
+            <div class="trou" id="7"></div> 
+            <div class="trou" id="8"></div> 
+        </div> 
+    </div>
+    <div class="smallbox">Attention aux serpents !</div> 
+    <div class="lvl">
+            <label for="difficulte">Difficulté:</label>
+            <input type="range" id="difficulte" name="difficulte" min="1" max="3">
+    </div>
+    <div class = "curseur"></div>
+    <script src="script_desert.js"></script>
+</body>
+</html>

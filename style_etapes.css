@@ -1,0 +1,504 @@
+body{
+    height: 100%;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+/* fond pour desert.html */
+.desert {
+    background-image: url("img/desert.png");
+    cursor: none;
+}
+.mer {
+    background-image: url("img/storm.gif");
+    background-position: center right
+}
+
+.foret {
+    cursor: none;
+    background-image: url("img/foret.png");
+}
+
+.final {
+    background-image: url("img/storm.gif");
+    background-position: center right
+}
+
+/* Etapes */
+
+.bigbox {
+    font-size: 12px;
+    font-weight: bold;
+    align-items: center; 
+    justify-content: center; 
+    display: flex;
+    flex-direction: column;
+    position: absolute; 
+    top: 145px; 
+    left: 60px; 
+    border-radius: 10px; 
+    height: 400px;
+    width: 470px;
+}
+
+.desert .bigbox {
+    background-color: rgba(251, 168, 91, 0.5); 
+}
+
+.mer .bigbox {
+    background-color: rgba(24, 82, 90, 0.5); 
+}
+
+.foret .bigbox{
+    background-color: rgba(132, 245, 51, 0.422); 
+}
+
+.smallbox {
+    position: absolute;
+    top: 70px; 
+    left: 60px; 
+    border-radius: 10px; 
+    height: 60px;
+    width: 470px;
+    color: white; 
+    font-weight: bold; 
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: center;
+    margin: auto;
+}
+
+.smallbox div {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: 100%;
+    width: 100px;
+}
+
+.desert .smallbox {
+    background-color: rgba(83, 41, 2, 0.822); 
+}
+
+.mer .smallbox {
+    background-color: rgba(5, 39, 60, 0.767);
+}
+
+.foret .smallbox {
+    background-color: rgba(1, 47, 13, 0.596); 
+}
+
+.desert .smallbox div:hover {
+    background-color: rgba(83, 41, 2);
+}
+
+.mer .smallbox div:hover {
+    background-color: rgba(5, 39, 60, 0.767);
+}
+
+.smallbox div:hover {
+    background-color: rgb(40, 105, 34); ;
+}
+
+.lvl {
+    z-index: 4;
+    font-size: bold;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px; 
+    right: 20px; 
+    font-size: 18px;
+    color: white; 
+}
+
+.lvl label {
+    font-size: bold;
+}
+
+#difficulte {
+    appearance: none;
+    height: 2px;
+    background: linear-gradient(to right, green, orange, red); /* Dégradé de couleur */
+    outline: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* For the Whack a mole */
+
+.start_fin_score {
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: center; 
+    margin: auto;
+}
+
+#score {
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+#bstart { 
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-weight: bold;
+    background: rgb(74, 144, 100);
+    border-width: 3px;
+    border-color: rgb(15, 88, 63);
+    border-radius: 10px; 
+    padding: 10px; 
+    font-size: 16px; 
+    margin: 10px 30px;
+} 
+
+#bfin {
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-weight: bold;
+    background: rgb(205, 124, 135);
+    border-width: 3px;
+    border-color: rgb(112, 67, 111);
+    border-radius: 15px; 
+    padding: 10px; 
+    font-size: 16px; 
+    margin: 10px 30px;
+}
+
+#perso {
+    width:1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.game-container { 
+    display: grid; 
+    justify-content: center;
+    grid-template-columns: repeat(3, 110px); 
+    gap: 10px; 
+    padding: 20px; 
+} 
+
+.trou { 
+    position: relative;
+    height: 90px; 
+    width: 90px; 
+    background: rgba(83, 41, 2); 
+    border-radius: 100px; 
+    overflow: hidden;
+} 
+
+.serpent { 
+    width: 120%;
+    position: absolute;
+}
+
+.foret .curseur {
+    z-index: 10;
+    height: 10px;
+    width: 10px;
+    border-radius: 10px;
+    position: fixed;
+    background-color: orange;
+    background-repeat: no-repeat;
+    top: 200px;
+    left: 30px;
+    pointer-events: none
+}
+
+.desert .curseur {
+    height: 70px;
+    width: 70px;
+    overflow: visible;
+    position: fixed;
+    background-image: url("img/Wooden_Rod_icon.png");
+    background-repeat: no-repeat;
+    top: 0px;
+    left: 0px;
+    transform: translate(-50%, -20%);
+    transition: transform .1s;
+    pointer-events: none
+}
+
+.desert .curseur.active {
+    transform: translate(-50%, -20%) rotate(45deg);
+}
+
+
+/* Jeu forêt */
+
+.arbre {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    background-color: green;
+    border-color: darkgreen;
+    border-radius: 80%;
+    border-style: outset;
+}
+
+/* from mer.html */ 
+
+/* Quizz */
+
+.question{
+    width: 100%;
+    align-items: center;
+}
+
+.en {
+    font-weight: normal;
+    width: 96.5%;
+    color: white;
+    border-style: outset;
+    background-color: rgba(5, 39, 60, 0.767);
+    border-color: rgba(5, 37, 60, 0.767);
+    border-radius: 5px;
+    text-align: center; /* Centrage du texte */
+    padding: 5px;
+    margin-bottom: 25px;
+}
+
+.radio-container {
+    text-align: center;
+    position: static;
+    margin-bottom: 20px;
+}
+
+input[type="radio"] + label {
+    display: inline-block;
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    
+}
+
+input[type="radio"]:checked + label {
+    background-color: #8cb0a5;
+}
+
+.range-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.range-container #value{
+    color: white;
+    width: 50px;
+}
+
+.text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.en.three {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="text"] {
+    width: 300px; /* Largeur du champ de texte */
+    margin-bottom: 15px;
+}
+
+#sirilanka-image {
+    width: 50px; /* Définir la largeur souhaitée */
+    margin: 0px 30px 0px 0px;
+}
+
+input[type = button]{
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    top: 460px;
+    left: 550px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(5, 39, 60, 0.767);
+    border-color: rgba(5, 37, 60, 0.767);
+    border-width: 3px;
+    border-radius: 10px; 
+    padding: 10px; 
+    font-size: 16px; 
+    margin: 5px;
+}
+
+.monstre {
+    z-index: 2;
+    position:absolute;
+    top: 250px;
+    left: 600px;
+    height: 330px;
+}
+
+.monstrebulle{
+    z-index: 4;
+    position:absolute;
+    top: 150px;
+    left: 630px;
+    height: 90px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.hidden2 {
+    display: none;
+}
+
+/* final.html */
+
+.jesuisla {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    bottom: 20px;
+    left: 50%; 
+    transform: translateX(-50%); /* Centrer horizontalement */
+
+}
+
+.choix {
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(208, 212, 209, 0.345);
+    color: white; 
+    font-weight: bold; /* Texte en gras */
+    text-align: center;
+}
+
+audio {
+    border-radius: 5px;
+    color: white; 
+}
+
+.nuage.e1{
+    position: fixed;
+    height: 60%;
+    width: auto;
+    top: 10%;
+    left: -20%;
+}
+.nuage.e2{
+    position: fixed;
+    height: 60%;
+    width: auto;
+    top: 20%;
+    left: 5px;
+}
+.nuage.e3{
+    position: fixed;
+    height: 60%;
+    width: auto;
+    top: 30%;
+    left: -20%;
+}
+.nuage.e4{
+    position: fixed;
+    height: 60%;
+    width: auto;
+    top: 10%;
+    left: 30%;
+}
+.nuage.e5{
+    position: fixed;
+    height: 60%;
+    width: auto;
+    top: 30%;
+    left: 300px;
+}
+
+/* ici on peut ajouter un audio qui dit je suis la !!
+<audio src="media/03_Sniff_The_Sun_Dust.mp3" controls>
+    <p>
+    Votre navigateur ne prends pas en
+    charge les video HTML5.
+    </p>
+    </audio>*/
+
+.soeur {
+    position: fixed;
+    right: 10%;
+    bottom: 50%;
+    display: block;
+    height: 2.5%;
+}
+
+    /* Pour les smartphones */
+@media screen and (max-width: 600px) {
+    .bigbox {
+        width: 75%; /* Utilisez une largeur plus grande pour occuper la plupart de l'écran */
+        height: auto;
+        margin: auto;
+    }
+
+    .start_fin_score{
+        width: 70%;
+    }
+
+    .game-container{
+        width: 75%;
+        scale: 0.9;
+        margin-left: 15px;
+    }
+
+    #bfin {
+        position: relative;
+        top : -11px;
+        margin: auto;
+    }
+
+    .smallbox {
+        width: 75%; /* Utilisez une largeur plus grande pour occuper la plupart de l'écran */
+        margin: auto;
+    }
+
+    .lvl {
+        position: relative;
+        left: 1%;
+        top: 10px; /* Ajustez la position verticale selon vos besoins */
+    }
+    .en{
+        scale: 0.99;
+        align-items: center;
+    }
+
+    input[type = button]{
+        position: absolute;
+        top: 550px;
+        left: 33%;
+    }
+
+    .monstre {
+        display: none;
+    }
+
+    .monstrebulle {
+        position: relative;
+        top: 28px;
+        height: 85px;
+        left: 28%;
+    }
+}

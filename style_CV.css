@@ -1,0 +1,137 @@
+body {
+    background-color: orange;
+    font-family: 'Courier New', Courier, monospace;
+}
+/* Style pour centrer les images */
+.perso_soeur_auteurs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.perso_soeur {
+    display: flex;
+    flex-direction: row;
+}
+
+.perso{
+    z-index: 5;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 200px;
+    width: 130px;
+}
+
+.imsoeur {
+    z-index: 6;
+    height: 150px;
+    padding-top: 50px;
+}
+
+/* Styles pour centrer les images */
+
+.auteurs{
+    cursor: pointer;
+    z-index: 16;
+    font-size: 20px;
+    padding: 10px;
+    border: 5px outset rgb(146, 46, 26);
+    border-radius: 7px;
+    background-color: rgb(222, 94, 15);
+}
+
+/* Styles pour les CV */
+.conteneur {
+    z-index: 10;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    translate: -50%;
+    background-color: rgb(222, 94, 15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    flex-direction: column;
+    border: 5px outset rgb(146, 46, 26);
+    border-radius: 5px;
+    padding: 0px 0px 30px 0px;
+}
+.contenuC {
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 70%; /* Réglage de la largeur automatique */
+    height: auto; /* Hauteur automatique */
+    background-color: rgb(233, 224, 199);
+    font-size: 13px;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+    margin: 30px 0px 0px 30px;
+}
+
+.contenu_CV {
+    margin: 0px 0px 0px 70px;
+    z-index: 12;
+    text-align: justify;
+}
+
+.cercleC {
+    position: absolute;
+    z-index: 14;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 80%;
+    border: 5px outset rgb(146, 46, 26);
+    transform: translate(-50%);
+}
+
+.photop-cercleC {
+    z-index: 15;
+    background-color: rgb(141, 146, 175);
+    height: 100px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.hidden {
+    visibility: hidden; /* Masquer les CV */
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.sources {
+    z-index: 17;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    translate: -50%;
+    padding: 10px;
+    border: 5px outset rgb(146, 46, 26);
+    border-radius: 7px;
+    background-color: rgb(222, 94, 15);
+}
+
+.credits {
+    cursor: pointer;
+    background-color: rgb(222, 94, 15);
+    border: 5px outset rgb(146, 46, 26);
+    border-radius: 7px;
+    padding: 5px;
+
+}
+
+@media screen and (max-width: 600px) {
+    .contenu_CV {
+        text-align: left;
+    }
+}
